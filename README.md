@@ -1,7 +1,9 @@
 # pythons-scripts
 Some python scripts
 
-
 & Summary from 
-https://automatetheboringstuff.com/chapter0/
+https://automatetheboringstuff.com
+
+Author blog : http://inventwithpython.com/blog/
+
 
