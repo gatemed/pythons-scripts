@@ -1,3 +1,5 @@
+bacem mehri 0758259689
+
 Basics:
 https://pastebin.com/
 https://trinket.io/ share code and running it
@@ -5,13 +7,117 @@ docs.python.org
 http://sametmax.com/ce-quil-faut-savoir-en-python/
 https://automatetheboringstuff.com/#toc
 
+https://leanpub.com/python-apprentice/read_sample
+
+pypi (packae python in pypi.python.org)
+python 2 EOL 2020
+
+pep8, pep20 zen of python import this to print zen of python
+
 Philosophy: beatiful is better than ugly, explicit is better than implicit, simple is better than complex, complex is better than complicated.
-Readability counts
+Readability counts, special cases are not special enaugh to break the rules, spare is better than danse
 
 Obviously no bugs vs no obvious bugs
 
 PEP  Python Enhancement Proposal
 Flask python web api
 
-iPython advanced python interpreted (REPL) for ex reload module on changes
-pip3, iPython3, python3 (default 2)
+help in the python shell
+IDLE or iPython advanced python interpreted (REPL) for ex reload module on changes   ctrl d to quit python shell
+pycharm (editeur python avec debugger step by step execute) 
+pip3, iPython3, python3 (default 2 if pyton --version)
+
+Strings: isalpha(), capitalize(), replace(), isdigit(), split(",") => list, "{1} {2}".format(name1, name2)
+Bool: True, False cast to int 1 0 recast to string True False, None
+if not true or muche, "muche" if a > b else "truc"
+
+list [], append, if truc in list, del list[1], list[1:-1] from 1 to -1 from last
+len(list)
+range(10) list of 0 to 10
+break, continue
+
+while i > 10:
+
+dicos = {
+	"name" : "truc1",
+	"name2" : None
+}
+List of dict ...etc  dicos.get("key", "defaultReturn"), .keys(), .values()
+try:
+	code
+except specificEroor as error:
+	print(error)
+except Exception:
+	handle default
+	
+Other types: complex (complex numbers), bytes, tuple (immutable list like strings), set and frozenset (list list but unique objects in it like uniq linux cmd)
+
+input("enter something"):function to type something in keyboard
+
+def func_args(parametre_normal,
+     parametre_avec_default="valeur par défaut",
+*args,
+**kwargs)):
+	print arg1
+	print args
+func_args("param1", "param2", "infini1", "infini2", kwinfini1=1, kwinfini2=2)
+
+Nested functions is function in function because used only in 
+  
+files : file = open("file.txt", "a")      a append, r read, w write, rb read binary, wb write binary
+		file.write("fdsfsd")
+		fire.close()
+		
+		file.readline() in loop
+		
+		
+yield (in place of return) to create generators function like readlines() to not reexecute from the beginning
+
+lambda anonymous function: double = lambda x: x*2   (function in 1 line)
+double(5)
+
+class Truc:
+	pass
+
+truc = Truc()
+
+contructeur __init__(), self in class
+redefine __str__(self) to pretty print instead of memory place
+
+class attribute : inside class normal var without self 
+class Truc:
+	class_attribute = 1
+
+Truc.class_attribute
+
+class Vache(Animal)  to inherit  super() to reference the partent function
+
+no public or privated, ___ to signal that this is private
+
+import file
+file.function
+
+multi line comment 
+""" 
+docstring
+"""
+
+virtualenv for ex multiple django version in different python env
+
+virtualenv command line  (we try to keep them in the same folder)
+source /home/venvs/env1/bin/activate to activate and use , deactivate
+
+pyinstaller create exe file to create binary (python 3.4 max production version developper version even last python) pyinstaller main.py cmd line create build dist .spec and main.exe
+pyinstaller.org
+pyinstaller --onefile .\main.py (include and files in the exe so larger exe file)
+
+setup wizard to install the exe easier with tools innersetup for windows or rpm for windows (I guess), setup tools to install from source
+
+integer no max number, int float bool  scalar, string & bytes & dict & list collections
+== != ... elif else flat is better than nested
+
+path = r'raw string\' # no need to escape \
+sys.argv[1]
+d = b'bytes string'   decode method of bytes object or encode ("utf-8")
+__name__ __main__ if executed directly
+from truc import much1,much2
