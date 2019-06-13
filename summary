@@ -1,4 +1,17 @@
 Basics:
 https://pastebin.com/
 https://trinket.io/ share code and running it
+docs.python.org
+http://sametmax.com/ce-quil-faut-savoir-en-python/
+https://automatetheboringstuff.com/#toc
 
+Philosophy: beatiful is better than ugly, explicit is better than implicit, simple is better than complex, complex is better than complicated.
+Readability counts
+
+Obviously no bugs vs no obvious bugs
+
+PEP  Python Enhancement Proposal
+Flask python web api
+
+iPython advanced python interpreted (REPL) for ex reload module on changes
+pip3, iPython3, python3 (default 2)
