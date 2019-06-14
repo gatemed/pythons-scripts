@@ -1,5 +1,4 @@
 
-
 Basics:
 https://pastebin.com/
 https://trinket.io/ share code and running it
@@ -15,7 +14,7 @@ python 2 EOL 2020
 pep8, pep20 zen of python import this to print zen of python
 
 Philosophy: beatiful is better than ugly, explicit is better than implicit, simple is better than complex, complex is better than complicated.
-Readability counts, special cases are not special enaugh to break the rules, spare is better than danse
+Readability counts, special cases are not special enaugh to break the rules, spare is better than danse (2 lines between functions)
 
 Obviously no bugs vs no obvious bugs
 
@@ -50,7 +49,7 @@ except specificEroor as error:
 except Exception:
 	handle default
 	
-Other types: complex (complex numbers), bytes, tuple (immutable list like strings), set and frozenset (list list but unique objects in it like uniq linux cmd)
+Other types: complex (complex numbers), bytes, tuple (immutable list like strings), set and frozenset (unordered collection of unique immutable objects in it like uniq linux cmd)
 
 input("enter something"):function to type something in keyboard
 
@@ -121,3 +120,69 @@ sys.argv[1]
 d = b'bytes string'   decode method of bytes object or encode ("utf-8")
 __name__ __main__ if executed directly
 from truc import much1,much2
+
+docstring, to use help(my_function), docstring for function short description than args than return, dosctring module short description & usage
+
+#!/usr/bin/env python3        (shebang comment begging to say python3 or 2) work in windows too
+
+Objects: 
+
+int immutable too, recreate new objects than garbadge collector
+
+is to test if 2 objects same reference,  id(a) to print the reference
+python threat list as references (so edit second reference edit first too)
+
+time.ctime()
+global key word but not good
+type(words), dir(words) to inspect object, module attributes ...
+
+"str" * 2 = "strstr"
+tuples : ex = ("1", "2"), tuple of tuple possible, single element tuple t = (1,) else it is considered as math()
+tuple unpacking : (a, (b, (c,d))) = (1, (2, (3,4)))  & swap a,b = b,a
+
+join better than + for concat, split for ex: chaine = ''.join(["1", "2"]) better than + 
+partition like split ex: origin, _, destination = "Seattle-Boston".partition('-') # we can use _ as unused variable
+"Current position {pos1} {pos2}".format(pos1="yes",
+										pos2="yesyes")
+range = > stop or start stop or start stop step
+
+t = [1, 2, 4, 5]
+for i, v in emumerate(t):
+	print("i = {}, v = {}".format(i, v))
+	
+to hard copy a list: new_list = s[:] or copy method or v = list(s)
+
+s = l * 4 (4 referece to l)
+
+list.index('elem') return the index of elem, list.count("elem") return number of occurence
+del or l.remove('elem')
+l.insert(2, "new_elem")
+join concert to a string, split from str to list
+l1.extend(l2), l.reverse(), l.sort(reverse=True, key=len)
+y = sorted(x) => create new list same with reversed(but return iterator so list(y) to see as list)
+
+dicos:
+	no order, constructor dict or copy, f.dupate(g) to merge g in f
+for key in dicos:
+	print("{key} => {value}".format(key=key, value=colors[key]))
+	
+for value in dicos.values():
+	print(value)
+default iteration is keys 	just like in & not in work default in key
+
+for key, value in dicos.items():
+	print ...
+to remove : del
+we can use pprint module
+
+set:  so used to remove duplicates
+set unordered collection of unique immutable objets 
+s = {6, 25, 3535}
+
+create empty set : s = set() because {} create empty dict, 
+s.add.(12), s.update([1, 2, 4]) to add multiple from collection, s.remove(3) but error if not found, s.discard(3)
+copy method
+blue_eyes.union(blond_hair) == blond_hair.union(blue_eyes) or intersection, difference have this but not this, symmetric_difference one or other, issubset, issuperset, isdisjoint
+
+exceptions:
+	obviously don't ctch indentationError ...
