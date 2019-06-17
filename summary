@@ -17,11 +17,16 @@ Philosophy: beatiful is better than ugly, explicit is better than implicit, simp
 Readability counts, special cases are not special enaugh to break the rules, spare is better than danse (2 lines between functions), flat is better than nested
 error should never pass silently unless explicitly silenced
 
+polymorphism, duck typing (générécité), when I see a bird if it swim like a duck quacks like a duck walks like a duck  i call that bird a duck"  James Whitcomb Riley
+
 Obviously no bugs vs no obvious bugs
 
-It's easier to ask forgiveness than it is to get permission : try except better than test if exist (file) because can be deleted after 
-
+It's easier to ask forgiveness than it is to get permission : try except better than test if exist (file) because can be deleted after "Grace Hoper
+ 
 So exception is better than error code!!!
+
+Law of demeter the principle of least knowledge only talk to your friends" 
+
 
 PEP  Python Enhancement Proposal
 Flask python web api
@@ -200,13 +205,13 @@ blue_eyes.union(blond_hair) == blond_hair.union(blue_eyes) or intersection, diff
 It's easier to ask forgiveness than it is to get permission : try except better than test if exist (file) because can be deleted after 
 
 exceptions:
-	obviously don't ctch indentationError ...
+	obviously don't expect indentationError ...
 	
 raise to raise error (for exemple current)
 
 we can raise excpetion than can be caught in try catch (if case we create our own exception for exemple)
 if condition:
-	raise ValueError('not good')       # not cool way it s easier to ask for forgiveness!!!
+	raise ValueError('value error')      
 	
 but for exemple no need to raise typeError (or all types) because it raise itself anyway  just try directly
 	OSError for file error
@@ -274,4 +279,39 @@ zip gives tuple (combine d'itrable (1,1, 1) (2,2,2) ...),
 itertools.chain concat, itertools.count, itertools.islice
 
 
+
+
+
 ############################################### OBJECTS ####################################################
+Inhereit default from Obj
+_ as private because we are adults
+class CamelCase:
+	""" docstring """
+	
+	__init__(self, id):  # initializer not construction because object already created when init is launched
+		self._id = id
+		
+		raise if not id
+		
+	def meth(self):  # instance method
+		return
+		
+	def meth2():  # simple method
+		return 
+		
+output = "fsdfdsfsdfffffffffffffff"    \      # to create non line breaks string
+		 "fdsffffffffffffffffsdfsdfs"  \ 
+		 " fsdfdsfdsfs"
+		 
+class inheritance are not essentiel for polymorphism but more for reduce code 
+
+dont use class when function suffice because functions are also objects
+
+we can nest comprehension but bad
+
+TELL  don't  ASK, objets tell to another better than object ask another
+
+
+
+
+####################################### FILES ################################################################
