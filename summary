@@ -14,9 +14,14 @@ python 2 EOL 2020
 pep8, pep20 zen of python import this to print zen of python
 
 Philosophy: beatiful is better than ugly, explicit is better than implicit, simple is better than complex, complex is better than complicated.
-Readability counts, special cases are not special enaugh to break the rules, spare is better than danse (2 lines between functions)
+Readability counts, special cases are not special enaugh to break the rules, spare is better than danse (2 lines between functions), flat is better than nested
+error should never pass silently unless explicitly silenced
 
 Obviously no bugs vs no obvious bugs
+
+It's easier to ask forgiveness than it is to get permission : try except better than test if exist (file) because can be deleted after 
+
+So exception is better than error code!!!
 
 PEP  Python Enhancement Proposal
 Flask python web api
@@ -51,7 +56,10 @@ except Exception:
 	
 Other types: complex (complex numbers), bytes, tuple (immutable list like strings), set and frozenset (unordered collection of unique immutable objects in it like uniq linux cmd)
 
+tuple unpacking : a, b = b, a
 input("enter something"):function to type something in keyboard
+
+and or 
 
 def func_args(parametre_normal,
      parametre_avec_default="valeur par défaut",
@@ -114,6 +122,8 @@ setup wizard to install the exe easier with tools innersetup for windows or rpm 
 
 integer no max number, int float bool  scalar, string & bytes & dict & list collections
 == != ... elif else flat is better than nested
+
+
 
 path = r'raw string\' # no need to escape \
 sys.argv[1]
@@ -184,5 +194,84 @@ s.add.(12), s.update([1, 2, 4]) to add multiple from collection, s.remove(3) but
 copy method
 blue_eyes.union(blond_hair) == blond_hair.union(blue_eyes) or intersection, difference have this but not this, symmetric_difference one or other, issubset, issuperset, isdisjoint
 
+
+################################## Exception #######################################
+
+It's easier to ask forgiveness than it is to get permission : try except better than test if exist (file) because can be deleted after 
+
 exceptions:
 	obviously don't ctch indentationError ...
+	
+raise to raise error (for exemple current)
+
+we can raise excpetion than can be caught in try catch (if case we create our own exception for exemple)
+if condition:
+	raise ValueError('not good')       # not cool way it s easier to ask for forgiveness!!!
+	
+but for exemple no need to raise typeError (or all types) because it raise itself anyway  just try directly
+	OSError for file error
+
+	most used: IndexError, KeyError ValueError TypeError...
+We can use finnaly 
+
+
+
+################################## iteratos and generators #######################################
+
+comprehensions: because simple is better than complex list comprehension, set comprehension, dict comprehension 
+
+but complex comprehension are bad!!
+
+list comprehension : new_list = [expression(i) for i in old_list if filter(i)] just a way to write it one line
+set same but {}
+
+dict_comp = {value : key for (key,value) in dictonary.items() if filter(i)} # to inverse dict ex
+
+glob find files, os path and others oserror size...
+
+iterator = iter(list or iterable)
+next_item  = next(iterator)   # comme un pointeur qui se deplace  end StopIteration
+
+
+
+Generators: are iterable      its a loop function but executed on iteration, mieux : fonction executé à l'itération quand on veut pas process une fonction jusqu'à la fin
+
+def gen12():    
+	yield 1
+	yield 2   # return generator object  or StopIteration error
+next (gen12()) # or :
+for x in gen12():
+	print x
+but doing : g = gen12() # create a new generator 
+
+good for infinite, great files ... maths ..
+
+generator are iterable so comprehension of generator (short way function):
+gen_comp = (x*x for x in range(1, 100)) # create gen_comp   we need to recall this if we want to create another generator just like in function
+list(gen_comp) # genere la list but preferably iterate sinon c'est quoi l'interet...
+list(gen_comp) # empty because alredy 
+
+OBJECT GENERTOR SINGLE USE OBJECT
+
+`list` creating Python reserves memory for the whole list and calculates it on the spot. In case of generator, we receive only ”algorithm”/ “instructions” how to calculate that Python stores. And each time we call for generator, it will only “generate” the next element of the sequence on demand according to “instructions”.
+
+So generator will be slower, as every time the element of sequence is calculated and yielded, function context/state has to be saved to be picked up next time for generating next value. That “saving and loading function context/state” takes time.
+
+
+for exemple : sum(x*x for x in range(1000000000000))  # generator without () python use sum function ()  as () generator for readability (readability counts)
+so in this example the list is not created!!!!!!!
+
+itertools tools to create iterators   itertools.count() (create an iterator of infinte list )
+itertools.islice(iterable, start, stop)
+
+build iterator creation tools:
+sum, any zip all min max enumerate
+sum(itertools.islice(iterable, start, stop)) # samething here use as generator
+any([False, True, False])  # True  if any true
+all([False, True, False])  # False if all true
+zip gives tuple (combine d'itrable (1,1, 1) (2,2,2) ...), 
+
+itertools.chain concat, itertools.count, itertools.islice
+
+
+############################################### OBJECTS ####################################################
