@@ -30,7 +30,7 @@ Law of demeter the principle of least knowledge only talk to your friends"
 
 PEP  Python Enhancement Proposal
 Flask python web api
-
+ 
 help in the python shell
 IDLE or iPython advanced python interpreted (REPL) for ex reload module on changes   ctrl d to quit python shell
 pycharm (editeur python avec debugger step by step execute) 
