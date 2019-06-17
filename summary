@@ -314,4 +314,40 @@ TELL  don't  ASK, objets tell to another better than object ask another
 
 
 
-####################################### FILES ################################################################
+####################################### FILES and context manager################################################################
+use default encoding sys.getdefaultencoding()
+binary mode or text mode
+bynary files no newline
+
+f = open('wasterland', mode='wt', encoding='utf-8')  # write t txt b binary , a append, r read
+f.write(), f.close(), f.read(23) read 23 chars, f.seek(0), f.readline() to read line by line, readlines() gives list of lines
+writelines(
+	["fdfs","\n",
+	"fdsfsdfs"])
+	
+an used as iterators
+
+context manager with open as f:
+		fdsfdsfs
+context manager close de file when exit the bloc so no need to close
+
+with expr as VAR:
+	bloc
+	
+BINARY FILES:
+
+write hex
+
+bitwise operator:  >> 8 => shift 8 bits & 0xff (convert to bytes)
+
+file_like_object : url ... web_file...
+
+
+Conext manager to close our own context manager created :
+from contextlib import closing
+with closing(myfunc()) as m:   #the with closing launch close function at the end
+	m.do_1()
+	m.do_2()
+
+	
+####################################### Text debug and packaging ################################################################
