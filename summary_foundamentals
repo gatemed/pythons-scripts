@@ -30,7 +30,7 @@ Law of demeter the principle of least knowledge only talk to your friends"
 
 PEP  Python Enhancement Proposal
 Flask python web api
- 
+
 help in the python shell
 IDLE or iPython advanced python interpreted (REPL) for ex reload module on changes   ctrl d to quit python shell
 pycharm (editeur python avec debugger step by step execute) 
@@ -118,6 +118,8 @@ virtualenv for ex multiple django version in different python env
 
 virtualenv command line  (we try to keep them in the same folder)
 source /home/venvs/env1/bin/activate to activate and use , deactivate
+
+or venv module: python3 -m venv my_venv (activate samething)
 
 pyinstaller create exe file to create binary (python 3.4 max production version developper version even last python) pyinstaller main.py cmd line create build dist .spec and main.exe
 pyinstaller.org
@@ -350,4 +352,58 @@ with closing(myfunc()) as m:   #the with closing launch close function at the en
 	m.do_2()
 
 	
-####################################### Text debug and packaging ################################################################
+####################################### Text debug################################################################
+
+unittest module #unit tests, integration tests, acc
+
+TestCase # Related test functions basic unit tes
+
+
+class myUniTests(unittest.TestCase):
+Concepts: in practice speical function name, setUp, tearDown (before et anfter test_), test_mine
+  TestCase : basic unit test
+	def test_functions_runs(self):
+		analyse_mine()
+	
+	
+  fixtures: setUp and tearDown code run after or befaure test method
+  # special functions name
+  
+  def setUp(self): # old camlCase because before pep8
+	pass # do somthing befaure run
+	
+  def tearDown(self):
+	pass
+  
+  Assertions: tests for conditions and behaviors
+  
+	self.assertEqual(my_method, 4) # check if equal
+	with self.assertRaises(IOError):  # test that it raise IOError
+		my_function("dqsdqs") # for ex there , dqssfs is not a file (if my_function open a file)
+  
+	self.assertTrue(expr), assertFalse(expr)
+ Test Driver Development
+ 
+ Writing functions name start with test_
+
+ sum(1 for _ in file_handler) # number of line in file
+ 
+ 
+ 
+ DEbugger : to find bug PDB module import pdb , pdb.settrace() # launch debugger shell in python shell and we can type help
+ 
+ python3 -m pdb my_module.py
+ # we are in pdb shell
+ (Pdb) next # launch next bloc like next function defention
+	cont # launch everything because if ctrl c it will stop at some point and we can now where
+	
+	list # print actuel line we can see where we are
+	return # try to launch actuel until it return something if no return so infinite loop (in function for exemple)
+	where # see where we are
+	quit # to exit
+	print x # examine value
+	
+we can use this directly in script if we do import pdb 
+											pdb.set_trace()
+											
+####################################### Packging and distributing  ################################################################
