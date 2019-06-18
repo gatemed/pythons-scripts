@@ -22,11 +22,11 @@ polymorphism, duck typing (générécité), when I see a bird if it swim like a 
 Obviously no bugs vs no obvious bugs
 
 It's easier to ask forgiveness than it is to get permission : try except better than test if exist (file) because can be deleted after "Grace Hoper
- 
 So exception is better than error code!!!
 
-Law of demeter the principle of least knowledge only talk to your friends" 
+Law of demeter the principle of least knowledge only talk to your friends
 
+In the face of ambiguity, refuse the temptation to guess, To guess is to know that you left something out, what are you missing
 
 PEP  Python Enhancement Proposal
 Flask python web api
@@ -406,4 +406,30 @@ Concepts: in practice speical function name, setUp, tearDown (before et anfter t
 we can use this directly in script if we do import pdb 
 											pdb.set_trace()
 											
+
+											nose module tool to find and run test
+											
 ####################################### Packging and distributing  ################################################################
+python package user guide
+
+install on site-packages directory
+
+from distributils.core from setup # like setuptools of python2
+
+python setup.py install
+				sdist --format zip # create a package zip 
+				sdist --help-format or directly --help
+				
+pip search in PyPi  source also known as CheeseShop
+
+pip install --upgrade pip
+
+pip install nose
+
+nosetests module.py  # detect and launch tests without doing it manually
+
+pip can be used to install local zip for ex
+pip uninstall package
+
+
+module__file__ # see where the source file
