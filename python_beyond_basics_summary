@@ -1,0 +1,200 @@
+python everything is an object: module, function...package...
+###########################################large programs organisation###############################################
+dunder (double underscore  shortcut)
+package__path__ => directory
+module__path__ => error because file not dir(path) so __file__
+sys.path <= PYTHONPATH, sys.path[0] == '' for current directory
+
+package/__init__.py       import package: package.__file__ => gives the __init__
+
+relative import .a current, import ..b parent or from . import c  BUT RELATIVE IMPORT ARE BAD!! explicit is better than implicit
+
+__all__ to inspect attributes names if from module import * # not good
+see locals() print __all__ ( module attributes...)
+
+
+Namespace packages no __init__.py: pep420
+   how python import works :
+	looks sys.path,
+	import __init__.py
+	if module.py then load it
+	or consider all directories in sys.ath as namespaces
+	
+executable python package (zip):
+python3 package  => we can do that if package contain __main__.py (we can even zip package and do python package.zip)
+
+Python project structure:
+
+project_name
+	__main__.py # if we want to make our package executable
+	project_name
+		__init__.py
+		module.py
+		subpackage
+			__init__.py
+			
+	setup.py
+
+
+singleton concept => we can use module because only loaded once
+
+##################################### advanced function ##########################
+
+Function are object, so we can create our own callable object by defining a method __call__ in class
+
+note : object._cache to inspect __call__ result , object._cache.clear()
+
+timeit module , timeit function (setup="from __main__ import module", stmt="something") like time linux
+
+obiouvsly class are callable so we can do something like:
+
+def bla_class():
+	cls = tuple
+	return cls
+a = bla_class()
+b = a("tuple")
+print (b) # print a tuple
+
+return tuple if test else list
+
+lambda: expression that return a function object unlike function that are stattement that define a function and binds it to a name
+last_name = lambda name: name.split()[-1]
+					arg: return
+		if no arg lambda:
+lambdas cannot have docstrings!!!!! so pay attention and even can't be tested because anonymous
+
+callable(my_function) callable(MyClass) => return true
+
+*args, **kwargs (convention name)
+tuple, dict
+order : my_function(arg1, arg2, *args, kwargs1, kwargs2, **kwargs)
+
+exemple:
+def my_funct(arg1, arg2, *args)
+	print(args)
+t = (11, 12, 14, 43)
+my_func(*t) # will print 14, 43 
+
+# we can do the same with dict:
+
+def color(red, gree, **kwargs):
+	print(red)
+	print(green)
+	print(kwargs)
+k = {'red': 21, 'green':68, 'alpha': 52}
+color(**k)
+print :
+	21
+	68
+	{'alpha': 52}
+unpacking * list double unpacking ** dict
+zip function:
+daily list of list:
+
+tranposition => list(zip(*daily))
+
+python3 : partial unpacking
+for initiale, *reste in ducks:
+	print(initiale)
+	
+##################################### closures and decorators ##########################
+local functions we can create function inside functions (redefined each time the parent function is launched so new memoery place)
+
+LEGB Rule python check first  Local than  Enclosing than Global than Build in
+
+return function from function:
+CLOSURE  when a local function remember the enclosing env scope
+so closure prevent garbedge collector
+def enclosing():
+	def local_func():   # closure remember reference to objects from earlier scopes when launch 
+		print("local func")
+	return local_func # just the name
+lf = enclosing()
+lf() => print local func
+lf.__closure__ print the encolising variable for exemple    
+this is called function factories so enclosures purpose are to create function factories
+
+Global in local to edit global var
+global message
+message = "editing global message"
+
+nonlocal message # syntax error if there no enclosing message var
+message = "editing enclosing message"
+
+decorators callable take & return callable
+
+def decorator(func):
+	def wrap(*args, **kwargs):
+		x = func(*arg, **kwargs)
+		return ascii(x)
+	return wrap
+
+@my_decorator
+def northern_city():
+	return 'tùùùèèè'
+
+So function can used as decorators and so do callable object (so __init__ take funcion reference) it create an object class
+But we can use Class as decorators too (object decorator but class must be callable) 
+so we can add attribute to a function with a decorator class (pratique ) for ex count method my_function.count (how much time this function launched)
+Class decorator example:
+
+class CallCount:
+	def __init__(self, f):
+		self.f = f
+		self.count = 0
+	
+	def __call__(self, *args, **kwargs):
+		self.count += 1
+		return self.f(*args, **kwargs)
+
+@CallCount
+def hello(name):
+	print('Hello, {}'.format(name))
+
+
+!! voir même instance decorators with @My_Class()
+en ajoutant wrap au __call__
+
+multiple decorator : the first to be called is the nearest
+
+we can decorate class method too
+
+decorators changes __name__ and __doc__ for example but we can use:
+def decorator(func):
+	@functools.wraps(func)  # => to tell to the wraper to take the same __name__ and __doc__ as wraped function
+	def wrapper():
+		return func()
+	return wrapper
+	
+decorators don't take arguments but we can wrap the decorator with a function that take argument and return the decorator
+
+
+############################################### properties and and class methods beyond #######################
+super().
+class attribute no self
+to edit it fromm class function:
+	MyClass.class_attribute = 1
+Static Method with the @staticmethod decorator   class.method()
+Class method with @classmethod decorator def method(cls), when we do class.method() => class is passed as cls
+
+static method, like module method, no access to class or instance objects
+class method access to other class methods or constructor
+class method can be inherited
+
+properties (make attribute as properties like java setters and getters but with decorators)
+@property
+def celsisus(self):
+	return self._celsius
+if we do : my_obj.celsius it works!
+		but my_obj.celsius = 20 !! ERROR we need to @setter:
+		
+@celsisus.setter
+def celsisus(self, value):
+	semf._celsius = value
+
+@MyClass.p.celisous (from shild)
+
+super().celsius # DONT WORK we need to MyClass.celsious.fset(self, value)
+
+THIS IS BAD!!!!!!!!!!!!!!!!!!!!! Another solution Design pattern template method:
+
