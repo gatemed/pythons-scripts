@@ -18,7 +18,7 @@ Readability counts, special cases are not special enaugh to break the rules, spa
 error should never pass silently unless explicitly silenced
 
 polymorphism, duck typing (générécité), when I see a bird if it swim like a duck quacks like a duck walks like a duck  i call that bird a duck"  James Whitcomb Riley
-
+DRY principle do not Repeat yourself
 Obviously no bugs vs no obvious bugs
 
 It's easier to ask forgiveness than it is to get permission : try except better than test if exist (file) because can be deleted after "Grace Hoper
