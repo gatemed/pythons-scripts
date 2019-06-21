@@ -170,6 +170,8 @@ decorators don't take arguments but we can wrap the decorator with a function th
 
 
 ############################################### properties and and class methods beyond #######################
+self.var create instance attributes
+Class.var class attribute
 super().
 class attribute no self
 to edit it fromm class function:
@@ -194,7 +196,17 @@ def celsisus(self, value):
 
 @MyClass.p.celisous (from shild)
 
-super().celsius # DONT WORK we need to MyClass.celsious.fset(self, value)
+super().celsius # DONT WORK because super and properties dont work we need to: MyClass.celsious.fset(self, value)
 
 THIS IS BAD!!!!!!!!!!!!!!!!!!!!! Another solution Design pattern template method:
+INDIRECTION:
+It is easier to move a problem around (for example, by moving the problem to a different part of the overall network architecture) than it is to solve it.
 
+Template method and redifine them inherit them and do super(). So we can inherit
+
+###############################################  Strings and representations #######################
+repr() like str but include more details logging... good to include __repr__() in our class
+python use repr in print collection, str(liste) = repr(liste)
+str() __str__ in our class good, 
+
+format call __format__(self, f) # with f  the ":f".format
